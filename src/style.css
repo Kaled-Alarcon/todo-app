@@ -1,0 +1,151 @@
+*,
+*::before,
+*::after {
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+   font-family:
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      Oxygen,
+      Ubuntu,
+      Cantarell,
+      "Open Sans",
+      "Helvetica Neue",
+      sans-serif;
+   color: #fff;
+}
+
+body {
+   background-color: #222;
+}
+
+h1 {
+   font-size: 48px;
+}
+
+button {
+   padding: 4px 12px;
+   border: none;
+   outline: none;
+   font-size: 14px;
+   cursor: pointer;
+   transition: background-color 0.3s ease-in-out;
+   background-color: #414141;
+
+   &:hover {
+      background-color: darkmagenta;
+   }
+}
+
+#app {
+   height: 100vh;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   gap: 32px;
+}
+
+#todo-container {
+   width: 600px;
+   height: fit-content;
+   border: 2px solid #414141;
+   background-color: #2c2c2c;
+   box-shadow: 0px 8px 32px #333;
+
+   input[type="text"] {
+      width: 100%;
+      height: 70px;
+      padding: 0 16px;
+      border: none;
+      outline: none;
+      font-size: 20px;
+      background-color: transparent;
+
+      &::placeholder {
+         color: #ccc;
+      }
+   }
+
+   #todo-tasks-container {
+      width: 100%;
+      height: fit-content;
+      border-top: 2px solid #414141;
+
+      .todo-task-card.checked {
+         filter: brightness(60%);
+
+         span {
+            text-decoration: line-through;
+         }
+      }
+
+      .todo-task-card {
+         width: 100%;
+         height: 70px;
+         padding: 0 16px;
+         display: flex;
+         justify-content: flex-start;
+         align-items: center;
+         gap: 16px;
+         cursor: pointer;
+         transition: background-color 0.3s ease-in-out;
+         background-color: transparent;
+
+         &:hover {
+            background-color: #343434;
+         }
+
+         input[type="checkbox"] {
+            width: 24px;
+            height: 24px;
+            position: relative;
+            appearance: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+            background-color: #414141;
+
+            &:checked {
+               background-color: darkmagenta;
+
+               &::after {
+                  content: "●";
+                  position: absolute;
+                  color: white;
+                  font-size: 20px;
+                  left: 6px;
+                  top: -4px;
+               }
+            }
+         }
+
+         span {
+            font-size: 20px;
+         }
+      }
+   }
+
+   #todo-footer {
+      width: 100%;
+      height: 40px;
+      padding: 0 16px;
+      border-top: 2px solid #414141;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: transparent;
+
+      div {
+         display: flex;
+         gap: 6px;
+      }
+
+      p {
+         color: #ccc;
+      }
+   }
+}
